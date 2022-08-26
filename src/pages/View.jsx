@@ -8,9 +8,9 @@ const View = () => {
     let navigate = useNavigate();
     return (
         <>
-        <Header/>
-        <Detail/>
-        <Comment/>
+            <Header/>
+            <Detail/>
+            <Comment/>
         </>
     )
 }
