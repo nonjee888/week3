@@ -3,7 +3,9 @@ import { useSelector, useDispatch } from "react-redux/";
 import {useParams} from "react-router-dom"
 import { useState } from "react";
 
-import { removeComment, createComment } from "../../redux/modules/comments";
+import { createComment } from "../../redux/modules/comments";
+
+import Ment from "../ment/Ment";
 
 const Dd = styled.div`
 border-bottom: 1px solid grey;
@@ -23,7 +25,6 @@ const Comment = () => {
     let commentList = comments.filter((comment)=>{
         return String(comment.post) === id;
     })
-    console.log(comments)
     return (
         <>
         <Dd>댓글</Dd>
@@ -36,15 +37,7 @@ const Comment = () => {
         <div>
             {commentList.map((comment)=>{
                 return (
-                    <div className='list' key={comment.id}>
-                        <h4>{comment.desc}</h4>
-                        <button>수정하기</button>
-                        <button onClick={()=>{
-                            console.log(comment.id)
-                            dispatch(removeComment(comment.id))
-                        }}>
-                        삭제하기</button>
-                    </div>
+                    <Ment ment = {comment}/>
                 )
             })}
         </div>

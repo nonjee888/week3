@@ -37,7 +37,8 @@ let posts = createSlice({
 			state.splice(index,1);
         },
         updatePost(state, action){
-
+            let  index = state.findIndex(post =>  post.id === action.payload.id);
+			state.splice(index, 1, action.payload);
         },
         likePost(state, action){
             let index = state.findIndex(post => post.id === action.payload);
