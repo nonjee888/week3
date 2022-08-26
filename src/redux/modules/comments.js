@@ -24,7 +24,6 @@ let comments = createSlice({
             state.push(action.payload);
         },
         removeComment(state, action){
-            console.log(action.payload)
             let  index = state.findIndex(comment =>  comment.id === action.payload);
 			state.splice(index,1);
         },
