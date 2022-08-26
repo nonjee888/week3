@@ -31,13 +31,13 @@ const Comment = () => {
         <div>
         <input className="input" type="text" value={ment} 
         onChange={(e)=>{setMent(e.target.value);
-        setReview({...review, id:comments.length+1 , post: id, desc:ment});}}/>
+        setReview({...review, id:comments.length+1 , post: id, desc:e.target.value});}}/>
         <button onClick={()=>{dispatch(createComment(review)); setReview(initialState); setMent("")}}>댓글 작성</button>
         </div>
         <div>
             {commentList.map((comment)=>{
                 return (
-                    <Ment ment = {comment}/>
+                    <Ment ment = {comment} key={comment.id}/>
                 )
             })}
         </div>
