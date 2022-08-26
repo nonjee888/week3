@@ -5,6 +5,7 @@ let posts = createSlice({
     initialState:[
         {
             id: 0,
+            writer: "나야나",
             title: "안녕하세요",
             body: "7조분들",
             date: "2022.8.26",
@@ -12,6 +13,7 @@ let posts = createSlice({
         },
         {
             id: 1,
+            writer: "나야나",
             title: "부족한 실력이지만",
             body: "열심히 하겠습니다.",
             date: "2022.8.26",
@@ -19,6 +21,7 @@ let posts = createSlice({
         },
         {
             id: 2,
+            writer: "나야나",
             title: "다들",
             body: "화이팅",
             date: "2022.8.26",

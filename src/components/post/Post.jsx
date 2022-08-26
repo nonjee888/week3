@@ -1,6 +1,14 @@
 import {useNavigate} from "react-router-dom"
 import { useDispatch } from "react-redux/";
 import { removePost, updatePost } from "../../redux/modules/posts";
+import styled from "styled-components"
+
+const PostTitle = styled.h4`
+cursor:pointer;
+&:hover{
+color:purple;
+}
+`
 
 
 const Post = ({post}) => {
@@ -9,7 +17,7 @@ const Post = ({post}) => {
     return (
         <>
         <div className='list'>
-        <h4 onClick={()=>navigate("/view/"+ post.id)}>{post.title}<span>👍</span>{post.count}</h4>
+        <PostTitle onClick={()=>navigate("/view/"+ post.id)}>{post.title}<span>👍</span>{post.count}</PostTitle>
         <p>{post.body}</p>
         <p>{post.date}</p>
         <div>

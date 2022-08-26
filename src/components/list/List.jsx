@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 import { useSelector } from "react-redux/";
 
@@ -15,7 +14,7 @@ const List = () => {
         <>
         <Dd>게시글</Dd>
         {posts.map(post => 
-                <Post post ={post}/>
+                <Post post ={post} key={post.id}/>
             )
         }
         </>

@@ -9,7 +9,7 @@ const View = () => {
     return (
         <>
         <Header/>
-        <button onClick={()=>navigate("/")} >이전으로</button>
+        <button onClick={()=>navigate(-1)} >이전으로</button>
         <Detail/>
         <Comment/>
         </>

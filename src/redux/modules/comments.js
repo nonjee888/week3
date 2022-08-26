@@ -6,17 +6,17 @@ let comments = createSlice({
         {
             id: 0,
             post: 0,
-            title: "ㅋㅋㅋ"
+            desc: "ㅋㅋㅋ"
         },
         {
             id: 1,
             post: 0,
-            title: "너무 재밌다.",
+            desc: "너무 재밌다.",
         },
         {
             id: 2,
             post: 0,
-            title: "화이팅",
+            desc: "화이팅",
         },
     ],
     reducers:{
@@ -24,6 +24,7 @@ let comments = createSlice({
             state.push(action.payload);
         },
         removeComment(state, action){
+            console.log(action.payload)
             let  index = state.findIndex(comment =>  comment.id === action.payload);
 			state.splice(index,1);
         },

@@ -1,16 +1,15 @@
+import {useNavigate} from "react-router-dom"
 import Header from "../components/header/Header";
-import Form from "../components/form/form";
-import List from "../components/list/List";
 
 function Home() {
-  
-  return (
-    <div className="App">
-      <Header/>
-      <Form/>
-      <List/>
-    </div>
-  );
+    let navigate = useNavigate();
+    return (
+        <>
+        <Header/>
+        <button onClick={()=>navigate("/write")}>글 작성</button>
+        <button onClick={()=>navigate("/list")}>게시글 보기</button>
+        </>
+    );
 }
 
 
