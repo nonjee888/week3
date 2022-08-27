@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import {useParams, useNavigate} from "react-router-dom"
+import {useParams} from "react-router-dom"
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux/";
 import nextId from "react-id-generator";
@@ -14,7 +14,6 @@ border-bottom: 1px solid grey;
 
 const Comment = () => {
     let comId = nextId();
-    let navigate = useNavigate();
     let dispatch = useDispatch();
     const initialState = {
         id: 0,

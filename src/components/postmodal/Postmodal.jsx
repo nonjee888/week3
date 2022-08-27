@@ -1,9 +1,9 @@
 import { useState } from "react";
-import {useNavigate} from "react-router-dom"
-import axios from "axios";
+import {updatePost} from "../../redux/modules/posts"
+import { useDispatch } from "react-redux/";
 
 const Postmodal = ({post, close}) => {
-    let navigate = useNavigate();
+    let dispatch = useDispatch();
     const initialState = {
         id: post.id,
         writer: post.writer,
@@ -19,9 +19,6 @@ const Postmodal = ({post, close}) => {
     // const change = (title, body) =>{
     //     dispatch(updatePost({ ...post1, title:title, body:body }));
     // }
-    const updatePost = (todoId, edit) => {
-        axios.patch(`http://localhost:3001/posts/${todoId}`, edit);
-      };
     return (
         <>
         
@@ -39,7 +36,7 @@ const Postmodal = ({post, close}) => {
                 onChange={(e)=>{setBody(e.target.value)}}/>
             </div>
             <button className="btn btn-danger" 
-            onClick={()=>{updatePost(post1.id,{ ...post1, title:title, body:body });close(); navigate(0, { replace: true });}}>수정하기</button>
+            onClick={()=>{dispatch(updatePost({ ...post1, title:title, body:body }));close()}}>수정하기</button>
             <button className="btn btn-danger" onClick={()=>{close()}}>닫기</button>
             </div>
         </div>

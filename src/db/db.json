@@ -1,38 +1,6 @@
 {
   "posts": [
     {
-      "id": 1,
-      "writer": "나야나",
-      "title": "부족한 실력이지만",
-      "body": "열심히 하겠습니다.",
-      "date": "2022.8.26",
-      "count": 5
-    },
-    {
-      "id": 2,
-      "writer": "나야나",
-      "title": "다들",
-      "body": "화이팅",
-      "date": "2022.8.26",
-      "count": 0
-    },
-    {
-      "id": 3,
-      "writer": "dasd",
-      "title": "dsad",
-      "body": "dasdas",
-      "date": "2022.8.26",
-      "count": 0
-    },
-    {
-      "id": 6,
-      "writer": "알리알리",
-      "title": "알라셩",
-      "body": "얄라리얄라",
-      "date": "2022.8.26",
-      "count": 5
-    },
-    {
       "id": 7,
       "writer": "ㅇㄴㅁㅇㄴㅁ",
       "title": "제대로",
@@ -57,10 +25,18 @@
       "count": 0
     },
     {
-      "id": "id17",
-      "writer": "dsad",
-      "title": "sadasd",
-      "body": "sadada",
+      "id": "id45",
+      "writer": "안돼",
+      "title": "이런",
+      "body": "젠장글자수",
+      "date": "2022.8.26",
+      "count": 0
+    },
+    {
+      "id": "id29",
+      "writer": "아놔",
+      "title": "진짜...",
+      "body": "이건아니지",
       "date": "2022.8.26",
       "count": 0
     }
@@ -100,7 +76,7 @@
     {
       "id": "id8",
       "post": "1",
-      "desc": "ㅇㄴㅁㅇㅁ"
+      "desc": "바보멍청"
     },
     {
       "id": "id9",
@@ -113,19 +89,9 @@
       "desc": "ddsa"
     },
     {
-      "id": "id37",
-      "post": "1",
-      "desc": "살려줘"
-    },
-    {
       "id": "id49",
       "post": "1",
       "desc": "ㅇㅁㄴㅇㅁ"
-    },
-    {
-      "id": "id59",
-      "post": "1",
-      "desc": "ㅂㅈㄷㅂ"
     }
   ]
 }

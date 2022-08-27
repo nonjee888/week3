@@ -1,17 +1,13 @@
 import { useState } from "react";
-import {useNavigate} from "react-router-dom"
-import axios from "axios";
-
+import { useDispatch } from "react-redux/";
 import Commentmodal from "../commentmodal/Commentmodal";
+import { removeComment } from "../../redux/modules/comments";
 
 const Ment = ({ment}) => {
-    let navigate = useNavigate();
+    let dispatch = useDispatch();
     let [modal, setModal] = useState(false);
     const close=()=>{
         setModal(false);
-      }
-      const removeComment = (id) => {
-        axios.delete(`http://localhost:3001/comments/${id}`);
       }
       
     return (
@@ -23,8 +19,7 @@ const Ment = ({ment}) => {
             setModal(true);
             }}>수정하기</button>
             <button onClick={()=>{
-            removeComment(ment.id);
-            navigate(0, { replace: true })
+              dispatch(removeComment(ment.id))
             }}>
             삭제하기</button>
         </div>

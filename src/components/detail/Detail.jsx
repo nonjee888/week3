@@ -1,12 +1,16 @@
 import {useParams} from "react-router-dom"
-import {useNavigate} from "react-router-dom"
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useDispatch } from "react-redux/";
+import { likePost, removePost } from "../../redux/modules/posts";
+import {useNavigate} from "react-router-dom"
+
 
 import Postmodal from "../postmodal/Postmodal";
 
 const Detail = () =>{
-    let navigate = useNavigate();
+  let navigate = useNavigate();
+  let dispatch = useDispatch();
     let [modal, setModal] = useState(false);
     let {id} = useParams();
     let [post, setPost] = useState({});
@@ -18,16 +22,8 @@ const Detail = () =>{
       };
     useEffect(()=>{
       fetchPosts();
-    },[])
-
-    const removePost = (id) => {
-      axios.delete(`http://localhost:3001/posts/${id}`);
-    }
-
-    const likePost = (todoId, edit) => {
-      axios.patch(`http://localhost:3001/posts/${todoId}`, edit);
-    };
-
+    },[modal])
+    
     const close=()=>{
       setModal(false);
     }
@@ -44,16 +40,14 @@ const Detail = () =>{
             <p>{post.count}</p>
             <button onClick={()=>{
                 let copy = {...post, count:post.count+1}
-                console.log(copy);
-                likePost(post.id,copy);
-                navigate(0, { replace: true });
+                dispatch(likePost(copy));
             }}>👍좋아요</button>
           <button onClick={()=>{
             setModal(true);
           }}>수정하기</button>
           <button onClick={()=>{
-            removePost(post.id);
-            navigate("/list", { replace: true })
+            dispatch(removePost(post.id));
+            navigate("/list");
           }}>삭제하기</button>
           </div>
         </div>

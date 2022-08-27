@@ -1,9 +1,9 @@
 import { useState } from "react";
-import axios from "axios";
-import {useNavigate} from "react-router-dom"
+import { useDispatch } from "react-redux/";
+import { updateComment } from "../../redux/modules/comments";
 
 const Commentmodal = ({ment, close}) => {
-    let navigate = useNavigate();
+    let dispatch = useDispatch();
     const initialState = {
         id: ment.id,
         post: ment.post,
@@ -11,10 +11,6 @@ const Commentmodal = ({ment, close}) => {
     };
     const [ment1,setMent] = useState(initialState);
     const [desc,setDesc] =useState(ment1.desc);
-
-    const updateComment = (todoId, edit) => {
-        axios.patch(`http://localhost:3001/comments/${todoId}`, edit);
-      };
     
     return (
         <>
@@ -28,7 +24,7 @@ const Commentmodal = ({ment, close}) => {
                 onChange={(e)=>{setDesc(e.target.value)}}/>
             </div>
             <button className="btn btn-danger" 
-            onClick={()=>{updateComment(ment1.id,{...ment1,desc:desc});close(); navigate(0, { replace: true });}}>수정하기</button>
+            onClick={()=>{dispatch(updateComment({...ment1,desc:desc}));close();}}>수정하기</button>
             <button className="btn btn-danger" onClick={()=>{close()}}>닫기</button>
             </div>
         </div>

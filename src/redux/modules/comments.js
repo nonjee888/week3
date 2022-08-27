@@ -3,23 +3,7 @@ import axios from 'axios';
 
 let comments = createSlice({
     name:"comments",
-    initialState:[
-        {
-            id: 0,
-            post: 0,
-            desc: "ㅋㅋㅋ"
-        },
-        {
-            id: 1,
-            post: 0,
-            desc: "너무 재밌다.",
-        },
-        {
-            id: 2,
-            post: 0,
-            desc: "화이팅",
-        },
-    ],
+    initialState:[],
     reducers:{
         createComment(state, action){
             state.push(action.payload);
@@ -28,10 +12,12 @@ let comments = createSlice({
         removeComment(state, action){
             let  index = state.findIndex(comment =>  comment.id === action.payload);
 			state.splice(index,1);
+            axios.delete(`http://localhost:3001/comments/${action.payload}`);
         },
         updateComment(state, action){
             let  index = state.findIndex(post =>  post.id === action.payload.id);
 			state.splice(index, 1, action.payload);
+            axios.patch(`http://localhost:3001/comments/${action.payload.id}`, action.payload);
         }
     }
 })
