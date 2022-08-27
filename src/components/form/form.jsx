@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import { useDispatch } from "react-redux/";
-import { createPost } from "../../redux/modules/posts";
 import {useNavigate} from "react-router-dom"
 
 let number = 3;
@@ -15,6 +15,15 @@ const Form = () => {
         date: "2022.8.26",
         count: 0
       };
+      let [posts, setPosts] = useState([]);
+    const fetchPosts = async () => {
+        const { data } = await axios.get("http://localhost:3001/posts");
+        setPosts(data); // 서버로부터 fetching한 데이터를 useState의 state로 set 합니다.
+        console.log(posts);
+      };
+    useEffect(()=>{
+        fetchPosts();
+    },[])
     const [post,setPost] = useState(initialState);
     const onChangeHandler = (event) => {
         const { name, value } = event.target;
@@ -23,12 +32,13 @@ const Form = () => {
       const onSubmitHandler = (event) => {
         event.preventDefault();
         if (post.title.trim() === "" || post.body.trim() === "") return;
-        dispatch(createPost({ ...post, id: number }));
+        axios.post("http://localhost:3001/posts",{ ...post, id: posts.length+1 } );
         setPost(initialState);
         number++;
         navigate("/list")
       };
     
+      
     return (
         <form onSubmit={onSubmitHandler} className="add-form">
             <div className ="input-group">

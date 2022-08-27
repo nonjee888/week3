@@ -1,0 +1,92 @@
+{
+  "posts": [
+    {
+      "id": 0,
+      "writer": "나야나",
+      "title": "안녕하세요",
+      "body": "7조분들",
+      "date": "2022.8.26",
+      "count": 0
+    },
+    {
+      "id": 1,
+      "writer": "나야나",
+      "title": "부족한 실력이지만",
+      "body": "열심히 하겠습니다.",
+      "date": "2022.8.26",
+      "count": 0
+    },
+    {
+      "id": 2,
+      "writer": "나야나",
+      "title": "다들",
+      "body": "화이팅",
+      "date": "2022.8.26",
+      "count": 0
+    },
+    {
+      "id": 3,
+      "writer": "dasd",
+      "title": "dsad",
+      "body": "dasdas",
+      "date": "2022.8.26",
+      "count": 0
+    },
+    {
+      "id": 4,
+      "writer": "dsadsa",
+      "title": "dasdas",
+      "body": "dasdas",
+      "date": "2022.8.26",
+      "count": 0
+    },
+    {
+      "id": 6,
+      "writer": "알리알리",
+      "title": "알라셩",
+      "body": "얄라리얄라",
+      "date": "2022.8.26",
+      "count": 0
+    },
+    {
+      "id": 7,
+      "writer": "ㅇㄴㅁㅇㄴㅁ",
+      "title": "ㅇㅁㄴㅇㅁㄴ",
+      "body": "ㅇㄴㅁㅇㅁㄴㅇㅁㄴ",
+      "date": "2022.8.26",
+      "count": 0
+    }
+  ],
+  "comments": [
+    {
+      "id": 0,
+      "post": 0,
+      "desc": "ㅋㅋㅋ"
+    },
+    {
+      "id": 1,
+      "post": 0,
+      "desc": "너무 재밌다."
+    },
+    {
+      "id": 2,
+      "post": 0,
+      "desc": "화이팅"
+    },
+    {
+      "id": 4,
+      "post": "0",
+      "desc": "ㅋㅋㅋ"
+    },
+    {
+      "id": 11,
+      "post": "1",
+      "desc": "dsada"
+    },
+    {
+      "id": 12,
+      "post": "1",
+      "desc": "qqqqq"
+    }
+  ]
+}
