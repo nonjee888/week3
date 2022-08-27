@@ -1,8 +1,10 @@
 import styled from "styled-components"
-import {useParams} from "react-router-dom"
+import {useParams, useNavigate} from "react-router-dom"
 import { useEffect, useState } from "react";
-import {useNavigate} from "react-router-dom"
+import { useDispatch } from "react-redux/";
+import nextId from "react-id-generator";
 import axios from "axios";
+import { createComment } from "../../redux/modules/comments";
 
 import Ment from "../ment/Ment";
 
@@ -11,7 +13,9 @@ border-bottom: 1px solid grey;
 `
 
 const Comment = () => {
+    let comId = nextId();
     let navigate = useNavigate();
+    let dispatch = useDispatch();
     const initialState = {
         id: 0,
         post: 0,
@@ -38,8 +42,8 @@ const Comment = () => {
         <div>
         <input className="input" type="text" value={ment} 
         onChange={(e)=>{setMent(e.target.value);
-        setReview({...review, id:Math.random() , post: id, desc:e.target.value});}}/>
-        <button onClick={()=>{axios.post("http://localhost:3001/comments",review ); setReview(initialState); setMent(""); navigate(0, { replace: true }); }}>댓글 작성</button>
+        setReview({...review, id:comId , post: id, desc:e.target.value});}}/>
+        <button onClick={()=>{dispatch(createComment(review)); setReview(initialState); setMent("");}}>댓글 작성</button>
         </div>
         <div>
             {commentList.map((comment)=>{

@@ -1,4 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 let comments = createSlice({
     name:"comments",
@@ -22,6 +23,7 @@ let comments = createSlice({
     reducers:{
         createComment(state, action){
             state.push(action.payload);
+            axios.post("http://localhost:3001/comments",action.payload );
         },
         removeComment(state, action){
             let  index = state.findIndex(comment =>  comment.id === action.payload);

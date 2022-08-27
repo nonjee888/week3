@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useState } from "react";
 import {useNavigate} from "react-router-dom"
+import nextId from "react-id-generator";
+import { createPost } from "../../redux/modules/posts";
+import { useDispatch } from "react-redux/";
 
-let number = 3;
 const Form = () => {
+    let id = nextId();
     let navigate = useNavigate();
+    let dispatch = useDispatch();
     const initialState = {
         id: 0,
         writer: "",
@@ -13,15 +16,6 @@ const Form = () => {
         date: "2022.8.26",
         count: 0
       };
-      let [posts, setPosts] = useState([]);
-    const fetchPosts = async () => {
-        const { data } = await axios.get("http://localhost:3001/posts");
-        setPosts(data); // 서버로부터 fetching한 데이터를 useState의 state로 set 합니다.
-        console.log(posts);
-      };
-    useEffect(()=>{
-        fetchPosts();
-    },[])
     const [post,setPost] = useState(initialState);
     const onChangeHandler = (event) => {
         const { name, value } = event.target;
@@ -29,10 +23,9 @@ const Form = () => {
       };
       const onSubmitHandler = (event) => {
         event.preventDefault();
-        if (post.title.trim() === "" || post.body.trim() === "") return;
-        axios.post("http://localhost:3001/posts",{ ...post, id: Math.random() } );
+        if (post.writer.trim() === "" || post.title.trim() === "" || post.body.trim() === "") return alert('비었다.');
+        dispatch(createPost({ ...post, id: id }));
         setPost(initialState);
-        number++;
         navigate("/list")
       };
     
@@ -41,13 +34,13 @@ const Form = () => {
         <form onSubmit={onSubmitHandler} className="add-form">
             <div className ="input-group">
                 <label>작성자</label>
-                <input className="input" type="text" name="writer" value={post.writer} onChange={onChangeHandler}/>
+                <input className="input" type="text" name="writer" value={post.writer} onChange={onChangeHandler} minLength="2"/>
                 
                 <label>제목</label>
-                <input className="input" type="text" name="title" value={post.title} onChange={onChangeHandler}/>
+                <input className="input" type="text" name="title" value={post.title} onChange={onChangeHandler} minLength="2"/>
             
                 <label>내용</label>
-                <input className="input" type="text" name="body" value={post.body} onChange={onChangeHandler}/>
+                <input className="input" type="text" name="body" value={post.body} onChange={onChangeHandler} minLength="5"/>
                  
                 <button className="but">
                 추가하기</button>   

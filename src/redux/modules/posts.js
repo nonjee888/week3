@@ -1,37 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
+import axios from 'axios';
 
 let posts = createSlice({
     name:"posts",
-    initialState:[
-        {
-            id: 0,
-            writer: "나야나",
-            title: "안녕하세요",
-            body: "7조분들",
-            date: "2022.8.26",
-            count: 0
-        },
-        {
-            id: 1,
-            writer: "나야나",
-            title: "부족한 실력이지만",
-            body: "열심히 하겠습니다.",
-            date: "2022.8.26",
-            count: 0
-        },
-        {
-            id: 2,
-            writer: "나야나",
-            title: "다들",
-            body: "화이팅",
-            date: "2022.8.26",
-            count: 0
-        },
-    ],
+    initialState: [],
     reducers:{
         createPost(state, action){
             state.push(action.payload);
-            console.log(state);
+            axios.post("http://localhost:3001/posts", action.payload );
         },
         removePost(state, action){
             let  index = state.findIndex(post =>  post.id === action.payload);
@@ -48,6 +24,6 @@ let posts = createSlice({
     }
 })
 
-export let { createPost, removePost, updatePost, likePost } = posts.actions;
+export let { readPost,createPost, removePost, updatePost, likePost } = posts.actions;
 
 export default posts;
