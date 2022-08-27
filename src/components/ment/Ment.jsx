@@ -1,14 +1,16 @@
-import { removeComment } from "../../redux/modules/comments";
 import { useDispatch } from "react-redux/";
 import { useState } from "react";
+import axios from "axios";
 
 import Commentmodal from "../commentmodal/Commentmodal";
 
 const Ment = ({ment}) => {
     let [modal, setModal] = useState(false);
-    let dispatch = useDispatch();
     const close=()=>{
         setModal(false);
+      }
+      const removeComment = (id) => {
+        axios.delete(`http://localhost:3001/comments/${id}`);
       }
     return (
     <>
@@ -19,7 +21,7 @@ const Ment = ({ment}) => {
             setModal(true);
             }}>수정하기</button>
             <button onClick={()=>{
-            dispatch(removeComment(ment.id))
+            removeComment(ment.id)
             }}>
             삭제하기</button>
         </div>
