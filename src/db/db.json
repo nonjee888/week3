@@ -1,97 +1,59 @@
 {
   "posts": [
     {
-      "id": 7,
-      "writer": "ㅇㄴㅁㅇㄴㅁ",
-      "title": "제대로",
-      "body": "적겠습니다.",
+      "id": "id31",
+      "writer": "나는",
+      "title": "테스트",
+      "body": "라고해안녕",
       "date": "2022.8.26",
       "count": 0
     },
     {
-      "id": "id20",
-      "writer": "qweq",
-      "title": "qeqwe",
-      "body": "qeqweqweq",
+      "id": "id35",
+      "writer": "헬로",
+      "title": "c월드",
+      "body": "웰컴투더헬",
       "date": "2022.8.26",
       "count": 0
     },
     {
-      "id": "id63",
-      "writer": "지막마",
-      "title": "마지막",
-      "body": "막지마",
+      "id": "id42",
+      "writer": "과연",
+      "title": "잘될까?",
+      "body": "부탁하마요",
       "date": "2022.8.26",
       "count": 0
     },
     {
-      "id": "id45",
-      "writer": "안돼",
-      "title": "이런",
-      "body": "젠장글자수",
+      "id": "id80",
+      "writer": "과연",
+      "title": "될까요?",
+      "body": "두구두구두",
       "date": "2022.8.26",
       "count": 0
     },
     {
-      "id": "id29",
-      "writer": "아놔",
-      "title": "진짜...",
-      "body": "이건아니지",
+      "id": "id116",
+      "writer": "이거",
+      "title": "되면 ",
+      "body": "자러갈거야",
+      "date": "2022.8.26",
+      "count": 0
+    },
+    {
+      "id": "id73",
+      "writer": "나는",
+      "title": "안되니까",
+      "body": "못가는걸까?",
       "date": "2022.8.26",
       "count": 0
     }
   ],
   "comments": [
     {
-      "id": 1,
-      "post": 0,
-      "desc": "너무 재밌다."
-    },
-    {
-      "id": 2,
-      "post": 0,
-      "desc": "화이팅"
-    },
-    {
-      "id": 4,
-      "post": "0",
-      "desc": "ㅂㅂㅂ"
-    },
-    {
-      "id": 7,
-      "post": "0",
-      "desc": "ㅂㅂㅂㅂ",
-      "ㅂㅂㅂㅂ": ""
-    },
-    {
-      "id": 8,
-      "post": "7",
-      "desc": "하이"
-    },
-    {
-      "id": 9,
-      "post": "0",
-      "desc": "dasdas"
-    },
-    {
-      "id": "id8",
-      "post": "1",
-      "desc": "바보멍청"
-    },
-    {
-      "id": "id9",
-      "post": "1",
-      "desc": "달려가"
-    },
-    {
-      "id": "id5",
-      "post": "1",
-      "desc": "ddsa"
-    },
-    {
-      "id": "id49",
-      "post": "1",
-      "desc": "ㅇㅁㄴㅇㅁ"
+      "id": "id13",
+      "post": "id31",
+      "desc": "ㅂㄷㅂㅈㄷㅂ"
     }
   ]
 }

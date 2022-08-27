@@ -7,7 +7,7 @@ function Home() {
     return (
         <>
         <Header/>
-        <Allbtn onClick={()=>navigate("/write")} desc = {"글 작성"}></Allbtn>
+        <Allbtn onClick={()=>navigate("/write")} desc = {"글 작성"} cl = {"white"}></Allbtn>
         <Allbtn onClick={()=>navigate("/list")} desc = {"게시글 보기"}></Allbtn>
         </>
     );

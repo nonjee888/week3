@@ -4,6 +4,7 @@ let Btn = styled.button`
 background-color: orange;
 width: 100%;
 padding: 10px;
+color: ${props => props.cl}
 `
 
 const Allbtn = ({desc, onClick}) => {

@@ -1,40 +1,48 @@
 import styled from "styled-components"
 import {useParams} from "react-router-dom"
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux/";
+import { useDispatch, useSelector } from "react-redux/";
 import nextId from "react-id-generator";
-import axios from "axios";
-import { createComment } from "../../redux/modules/comments";
+import { createComment} from "../../redux/modules/comments";
+import { __getComments } from "../../redux/modules/comments";
 
 import Ment from "../ment/Ment";
 
 const Dd = styled.div`
 border-bottom: 1px solid grey;
+background-color: orange;
 `
 
 const Comment = () => {
     let comId = nextId();
     let dispatch = useDispatch();
+    
     const initialState = {
         id: 0,
         post: 0,
         desc: ""
     };
-
+    
     let [ment, setMent] = useState("");
     let [review,setReview] = useState(initialState);
     let {id} = useParams();
-    let [comments, setComments] = useState([]);
-    const fetchComments = async () => {
-        const { data } = await axios.get("http://localhost:3001/comments");
-        setComments(data); // 서버로부터 fetching한 데이터를 useState의 state로 set 합니다.
-      };
-    useEffect(()=>{
-        fetchComments();
-    },[ment]);
+    const { isLoading, error, comments } = useSelector((state) => state.comments);
+    console.log(comments);
+    
+    useEffect(() => {
+        dispatch(__getComments());
+    }, [dispatch]);
+    if (isLoading) {
+        return <div>로딩 중....</div>;
+    }
+
+    if (error) {
+        return <div>{error.message}</div>;
+    }
     let commentList = comments.filter((comment)=>{
         return String(comment.post) === id;
     })
+    console.log(commentList)
     return (
         <>
         <Dd>댓글</Dd>

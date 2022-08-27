@@ -26,7 +26,7 @@ const Form = () => {
         if (post.writer.trim() === "" || post.title.trim() === "" || post.body.trim() === "") return alert('비었다.');
         dispatch(createPost({ ...post, id: id }));
         setPost(initialState);
-        navigate("/list")
+        navigate("/list");
       };
     
       

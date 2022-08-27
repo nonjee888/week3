@@ -1,9 +1,9 @@
 import {useParams} from "react-router-dom"
 import { useEffect, useState } from "react";
-import axios from "axios";
-import { useDispatch } from "react-redux/";
+import { useDispatch, useSelector } from 'react-redux/';
 import { likePost, removePost } from "../../redux/modules/posts";
-import {useNavigate} from "react-router-dom"
+import {useNavigate} from "react-router-dom";
+import { __getPosts } from "../../redux/modules/posts";
 
 
 import Postmodal from "../postmodal/Postmodal";
@@ -13,16 +13,21 @@ const Detail = () =>{
   let dispatch = useDispatch();
     let [modal, setModal] = useState(false);
     let {id} = useParams();
-    let [post, setPost] = useState({});
-    const fetchPosts = async () => {
-        const { data } = await axios.get("http://localhost:3001/posts");
-        setPost( data.find((post)=>{
-          return String(post.id) === id;
-      }))// 서버로부터 fetching한 데이터를 useState의 state로 set 합니다.
-      };
-    useEffect(()=>{
-      fetchPosts();
-    },[modal])
+    const { isLoading, error, posts } = useSelector((state) => state.posts);
+    let post = posts.find((post)=>{
+      return String(post.id) === id;
+    })
+    
+    useEffect(() => {
+        dispatch(__getPosts());
+    }, [dispatch]);
+    if (isLoading) {
+        return <div>로딩 중....</div>;
+    }
+
+    if (error) {
+        return <div>{error.message}</div>;
+    }
     
     const close=()=>{
       setModal(false);
@@ -30,6 +35,7 @@ const Detail = () =>{
 
     return (
       <>{modal? <Postmodal post={post} close={close}/>:null}
+      <div style={{backgroundColor:"orange"}}>게시글</div>
       <div className='modal' style={{background: 'skyblue'}}>
         <button onClick={()=>navigate(-1)} >이전으로</button>
           <h4>{post.title}</h4>
@@ -47,7 +53,7 @@ const Detail = () =>{
           }}>수정하기</button>
           <button onClick={()=>{
             dispatch(removePost(post.id));
-            navigate("/list");
+            navigate("/list", {replace:true});
           }}>삭제하기</button>
           </div>
         </div>
