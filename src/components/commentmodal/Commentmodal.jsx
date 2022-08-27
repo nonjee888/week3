@@ -1,11 +1,9 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux/";
 import axios from "axios";
 
 // import { updateComment } from "../../redux/modules/comments";
 
 const Commentmodal = ({ment, close}) => {
-    let dispatch = useDispatch();
     const initialState = {
         id: ment.id,
         post: ment.post,

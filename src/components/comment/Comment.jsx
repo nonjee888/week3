@@ -1,10 +1,8 @@
 import styled from "styled-components"
-import { useSelector, useDispatch } from "react-redux/";
+import { useDispatch } from "react-redux/";
 import {useParams} from "react-router-dom"
 import { useEffect, useState } from "react";
 import axios from "axios";
-
-import { createComment } from "../../redux/modules/comments";
 
 import Ment from "../ment/Ment";
 

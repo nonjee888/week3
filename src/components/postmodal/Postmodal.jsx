@@ -1,10 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux/";
-import { updatePost } from "../../redux/modules/posts";
 import axios from "axios";
 
 const Postmodal = ({post, close}) => {
-    let dispatch = useDispatch();
     const initialState = {
         id: post.id,
         writer: post.writer,

@@ -1,6 +1,4 @@
 import {useParams} from "react-router-dom"
-import { useDispatch } from "react-redux/";
-import { likePost, updatePost } from "../../redux/modules/posts";
 import {useNavigate} from "react-router-dom"
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -8,7 +6,6 @@ import axios from "axios";
 import Postmodal from "../postmodal/Postmodal";
 
 const Detail = () =>{
-    let dispatch = useDispatch();
     let navigate = useNavigate();
     let [modal, setModal] = useState(false);
     let {id} = useParams();
@@ -27,6 +24,10 @@ const Detail = () =>{
       axios.delete(`http://localhost:3001/posts/${id}`);
     }
 
+    const likePost = (todoId, edit) => {
+      axios.patch(`http://localhost:3001/posts/${todoId}`, edit);
+    };
+
     const close=()=>{
       setModal(false);
     }
@@ -42,7 +43,9 @@ const Detail = () =>{
           <div>
             <p>{post.count}</p>
             <button onClick={()=>{
-                dispatch(likePost(post.id))
+                let copy = {...post, count:post.count+1}
+                console.log(copy);
+                likePost(post.id,copy)
             }}>👍좋아요</button>
           <button onClick={()=>{
             setModal(true);

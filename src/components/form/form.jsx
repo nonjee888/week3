@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useDispatch } from "react-redux/";
 import {useNavigate} from "react-router-dom"
 
 let number = 3;
 const Form = () => {
-    let dispatch = useDispatch();
     let navigate = useNavigate();
     const initialState = {
         id: 0,
