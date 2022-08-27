@@ -32,7 +32,7 @@ const Comment = () => {
       };
     useEffect(()=>{
         fetchComments();
-    },[]);
+    },[ment]);
     let commentList = comments.filter((comment)=>{
         return String(comment.post) === id;
     })
