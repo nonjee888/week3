@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux/";
 import { updatePost } from "../../redux/modules/posts";
+import axios from "axios";
 
 const Postmodal = ({post, close}) => {
     let dispatch = useDispatch();
@@ -16,9 +17,12 @@ const Postmodal = ({post, close}) => {
     const [title,setTitle] =useState(post1.title);
     const [body,setBody] =useState(post1.body);
 
-    const change = (title, body) =>{
-        dispatch(updatePost({ ...post1, title:title, body:body }));
-    }
+    // const change = (title, body) =>{
+    //     dispatch(updatePost({ ...post1, title:title, body:body }));
+    // }
+    const updatePost = (todoId, edit) => {
+        axios.patch(`http://localhost:3001/posts/${todoId}`, edit);
+      };
     return (
         <>
         
@@ -36,7 +40,7 @@ const Postmodal = ({post, close}) => {
                 onChange={(e)=>{setBody(e.target.value)}}/>
             </div>
             <button className="btn btn-danger" 
-            onClick={()=>{change(title,body);close();}}>수정하기</button>
+            onClick={()=>{updatePost(post1.id,{ ...post1, title:title, body:body });close();}}>수정하기</button>
             <button className="btn btn-danger" onClick={()=>{close()}}>닫기</button>
             </div>
         </div>

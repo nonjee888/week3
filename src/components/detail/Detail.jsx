@@ -20,8 +20,8 @@ const Detail = () =>{
       }))// 서버로부터 fetching한 데이터를 useState의 state로 set 합니다.
       };
     useEffect(()=>{
-            setTimeout(()=>{fetchPosts();},500);
-    },[])
+          setTimeout(()=>{fetchPosts();},500);
+    },[post])
 
     const removePost = (id) => {
       axios.delete(`http://localhost:3001/posts/${id}`);

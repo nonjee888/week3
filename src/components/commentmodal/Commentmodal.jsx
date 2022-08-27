@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux/";
+import axios from "axios";
 
-import { updateComment } from "../../redux/modules/comments";
+// import { updateComment } from "../../redux/modules/comments";
 
 const Commentmodal = ({ment, close}) => {
     let dispatch = useDispatch();
@@ -12,9 +13,13 @@ const Commentmodal = ({ment, close}) => {
     };
     const [ment1,setMent] = useState(initialState);
     const [desc,setDesc] =useState(ment1.desc);
-    const change = (desc) =>{
-        dispatch(updateComment({ ...ment1, desc:desc}));
-    }
+    // const change = (desc) =>{
+    //     dispatch(updateComment({ ...ment1, desc:desc}));
+    // }
+
+    const updateComment = (todoId, edit) => {
+        axios.patch(`http://localhost:3001/comments/${todoId}`, edit);
+      };
     
     return (
         <>
@@ -28,7 +33,7 @@ const Commentmodal = ({ment, close}) => {
                 onChange={(e)=>{setDesc(e.target.value)}}/>
             </div>
             <button className="btn btn-danger" 
-            onClick={()=>{change(desc);close();}}>수정하기</button>
+            onClick={()=>{updateComment(ment1.id,{...ment1,desc:desc});close();}}>수정하기</button>
             <button className="btn btn-danger" onClick={()=>{close()}}>닫기</button>
             </div>
         </div>
