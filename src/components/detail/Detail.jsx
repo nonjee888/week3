@@ -18,7 +18,7 @@ const Detail = () =>{
       };
     useEffect(()=>{
           setTimeout(()=>{fetchPosts();},500);
-    },[post])
+    },[])
 
     const removePost = (id) => {
       axios.delete(`http://localhost:3001/posts/${id}`);
@@ -45,14 +45,15 @@ const Detail = () =>{
             <button onClick={()=>{
                 let copy = {...post, count:post.count+1}
                 console.log(copy);
-                likePost(post.id,copy)
+                likePost(post.id,copy);
+                navigate(0, { replace: true });
             }}>👍좋아요</button>
           <button onClick={()=>{
             setModal(true);
           }}>수정하기</button>
           <button onClick={()=>{
             removePost(post.id);
-            navigate("/list")
+            navigate("/list", { replace: true })
           }}>삭제하기</button>
           </div>
         </div>

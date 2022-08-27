@@ -30,7 +30,7 @@ const Form = () => {
       const onSubmitHandler = (event) => {
         event.preventDefault();
         if (post.title.trim() === "" || post.body.trim() === "") return;
-        axios.post("http://localhost:3001/posts",{ ...post, id: posts.length+1 } );
+        axios.post("http://localhost:3001/posts",{ ...post, id: Math.random() } );
         setPost(initialState);
         number++;
         navigate("/list")

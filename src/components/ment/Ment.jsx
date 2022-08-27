@@ -1,9 +1,11 @@
 import { useState } from "react";
+import {useNavigate} from "react-router-dom"
 import axios from "axios";
 
 import Commentmodal from "../commentmodal/Commentmodal";
 
 const Ment = ({ment}) => {
+    let navigate = useNavigate();
     let [modal, setModal] = useState(false);
     const close=()=>{
         setModal(false);
@@ -11,6 +13,7 @@ const Ment = ({ment}) => {
       const removeComment = (id) => {
         axios.delete(`http://localhost:3001/comments/${id}`);
       }
+      
     return (
     <>
         {modal?<Commentmodal ment = {ment} close={close}/>:null}
@@ -20,7 +23,8 @@ const Ment = ({ment}) => {
             setModal(true);
             }}>수정하기</button>
             <button onClick={()=>{
-            removeComment(ment.id)
+            removeComment(ment.id);
+            navigate(0, { replace: true })
             }}>
             삭제하기</button>
         </div>

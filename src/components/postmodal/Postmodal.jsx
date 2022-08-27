@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux/";
+import {useNavigate} from "react-router-dom"
 import axios from "axios";
 
 const Postmodal = ({post, close}) => {
+    let navigate = useNavigate();
     const initialState = {
         id: post.id,
         writer: post.writer,
@@ -38,7 +39,7 @@ const Postmodal = ({post, close}) => {
                 onChange={(e)=>{setBody(e.target.value)}}/>
             </div>
             <button className="btn btn-danger" 
-            onClick={()=>{updatePost(post1.id,{ ...post1, title:title, body:body });close();}}>수정하기</button>
+            onClick={()=>{updatePost(post1.id,{ ...post1, title:title, body:body });close(); navigate(0, { replace: true });}}>수정하기</button>
             <button className="btn btn-danger" onClick={()=>{close()}}>닫기</button>
             </div>
         </div>
