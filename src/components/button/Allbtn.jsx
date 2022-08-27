@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 let Btn = styled.button`
-background-color: red;
+background-color: orange;
+width: 100%;
 `
 
 const Allbtn = ({desc, onClick}) => {

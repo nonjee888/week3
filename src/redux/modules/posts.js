@@ -31,6 +31,7 @@ let posts = createSlice({
     reducers:{
         createPost(state, action){
             state.push(action.payload);
+            console.log(state);
         },
         removePost(state, action){
             let  index = state.findIndex(post =>  post.id === action.payload);
