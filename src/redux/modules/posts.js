@@ -22,23 +22,23 @@ export const posts = createSlice({
       },
     reducers:{
         createPost(state, action){
-            state.posts.push(action.payload);
-            axios.post("http://localhost:3001/posts", action.payload );
+          state.posts.push(action.payload);
+          axios.post("http://localhost:3001/posts", action.payload );
         },
         removePost(state, action){
-            let  index = state.posts.findIndex(post =>  post.id === action.payload);
-			state.posts.splice(index,1);
-            axios.delete(`http://localhost:3001/posts/${action.payload}`);
+          let  index = state.posts.findIndex(post =>  post.id === action.payload);
+			    state.posts.splice(index,1);
+          axios.delete(`http://localhost:3001/posts/${action.payload}`);
         },
         updatePost(state, action){
-            let  index = state.posts.findIndex(post =>  post.id === action.payload.id);
-			state.posts.splice(index, 1, action.payload);
-            axios.patch(`http://localhost:3001/posts/${action.payload.id}`, action.payload);
+          let  index = state.posts.findIndex(post =>  post.id === action.payload.id);
+			    state.posts.splice(index, 1, action.payload);
+          axios.patch(`http://localhost:3001/posts/${action.payload.id}`, action.payload);
         },
         likePost(state, action){
-            let index = state.posts.findIndex(post => post.id === action.payload.id);
-			state.posts[index].count +=1;
-            axios.patch(`http://localhost:3001/posts/${action.payload.id}`, action.payload);
+          let index = state.posts.findIndex(post => post.id === action.payload.id);
+			    state.posts[index].count +=1;
+          axios.patch(`http://localhost:3001/posts/${action.payload.id}`, action.payload);
         },
     },
     extraReducers: {

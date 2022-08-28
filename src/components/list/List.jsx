@@ -17,6 +17,7 @@ const List = () => {
     useEffect(() => {
         dispatch(__getPosts());
     }, [dispatch]);
+
     if (isLoading) {
         return <div>로딩 중....</div>;
     }
@@ -24,10 +25,13 @@ const List = () => {
     if (error) {
         return <div>{error.message}</div>;
     }
+    let postList = posts.filter((post)=>{
+        return post !== null;
+    })
     return (
         <>
         <Dd>게시글</Dd>
-        {posts.map(post => 
+        {postList.map(post => 
             <Post post ={post} key={post.id}/>
         )}
         </>

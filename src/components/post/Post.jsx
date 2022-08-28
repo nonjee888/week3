@@ -15,7 +15,7 @@ const Post = ({post}) => {
         <>
         <div className='list'>
         <PostTitle onClick={()=>navigate("/view/"+ post.id)}>{post.title}<span>👍</span>{post.count}</PostTitle>
-        <p>{post.body}</p>
+        <p>{post.writer}</p>
         <p>{post.date}</p>
         <div>
         </div>

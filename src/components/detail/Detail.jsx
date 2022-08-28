@@ -36,7 +36,7 @@ const Detail = () =>{
     return (
       <>{modal? <Postmodal post={post} close={close}/>:null}
       <div style={{backgroundColor:"orange"}}>게시글</div>
-      <div className='modal' style={{background: 'skyblue'}}>
+      <div className='modal' style={{background: '#d3d3d3'}}>
         <button onClick={()=>navigate(-1)} >이전으로</button>
           <h4>{post.title}</h4>
           <p>{post.body}</p>
@@ -53,7 +53,7 @@ const Detail = () =>{
           }}>수정하기</button>
           <button onClick={()=>{
             dispatch(removePost(post.id));
-            navigate("/list", {replace:true});
+            navigate("/", {replace:true});
           }}>삭제하기</button>
           </div>
         </div>

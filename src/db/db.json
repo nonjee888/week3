@@ -1,59 +1,29 @@
 {
   "posts": [
     {
-      "id": "id31",
-      "writer": "나는",
+      "id": "id127",
+      "writer": "추가",
       "title": "테스트",
-      "body": "라고해안녕",
+      "body": "합니다요롱",
       "date": "2022.8.26",
       "count": 0
     },
     {
-      "id": "id35",
-      "writer": "헬로",
-      "title": "c월드",
-      "body": "웰컴투더헬",
+      "id": "id165",
+      "writer": "일단",
+      "title": "이렇게",
+      "body": "합시다ㅇㅇ",
       "date": "2022.8.26",
       "count": 0
     },
     {
-      "id": "id42",
-      "writer": "과연",
-      "title": "잘될까?",
-      "body": "부탁하마요",
-      "date": "2022.8.26",
-      "count": 0
-    },
-    {
-      "id": "id80",
-      "writer": "과연",
-      "title": "될까요?",
-      "body": "두구두구두",
-      "date": "2022.8.26",
-      "count": 0
-    },
-    {
-      "id": "id116",
-      "writer": "이거",
-      "title": "되면 ",
-      "body": "자러갈거야",
-      "date": "2022.8.26",
-      "count": 0
-    },
-    {
-      "id": "id73",
-      "writer": "나는",
-      "title": "안되니까",
-      "body": "못가는걸까?",
+      "id": "id203",
+      "writer": "이렇게라도",
+      "title": "살리고",
+      "body": "싶었습니다.",
       "date": "2022.8.26",
       "count": 0
     }
   ],
-  "comments": [
-    {
-      "id": "id13",
-      "post": "id31",
-      "desc": "ㅂㄷㅂㅈㄷㅂ"
-    }
-  ]
+  "comments": []
 }

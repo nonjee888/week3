@@ -27,7 +27,6 @@ const Comment = () => {
     let [review,setReview] = useState(initialState);
     let {id} = useParams();
     const { isLoading, error, comments } = useSelector((state) => state.comments);
-    console.log(comments);
     
     useEffect(() => {
         dispatch(__getComments());
@@ -42,7 +41,6 @@ const Comment = () => {
     let commentList = comments.filter((comment)=>{
         return String(comment.post) === id;
     })
-    console.log(commentList)
     return (
         <>
         <Dd>댓글</Dd>
