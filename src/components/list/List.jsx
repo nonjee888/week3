@@ -15,6 +15,7 @@ const List = () => {
     const { isLoading, error, posts } = useSelector((state) => state.posts);
     
     useEffect(() => {
+        console.log("dd")
         dispatch(__getPosts());
     }, [dispatch]);
 

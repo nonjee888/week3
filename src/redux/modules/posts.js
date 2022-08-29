@@ -5,7 +5,7 @@ export const __getPosts = createAsyncThunk(
     "posts/getPosts",
     async (payload, thunkAPI) => {
         try {
-          const data =  await axios.get(process.env.REACT_APP_POSTS_HOST);
+          const data =  await axios.get("http://localhost:3001/posts");
           return thunkAPI.fulfillWithValue(data.data);
         } catch (error) {
           return thunkAPI.rejectWithValue(error);
@@ -23,7 +23,8 @@ export const posts = createSlice({
   reducers:{
       createPost(state, action){
         state.posts.push(action.payload);
-        axios.post(process.env.REACT_APP_POSTS_HOST, action.payload );
+        console.log("dd")
+        axios.post("http://localhost:3001/posts", action.payload );
       },
       removePost(state, action){
         let  index = state.posts.findIndex(post =>  post.id === action.payload);
